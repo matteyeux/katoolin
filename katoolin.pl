@@ -38,6 +38,16 @@ use Term::ANSIScreen qw(cls);
 use Term::ANSIColor;
 use Switch;
 
+sub swag_logo_by_figlet {
+   print "          _  __     _              _ _       \n";
+   print "         | |/ /    | |            | (_)      \n";
+   print "         | ' / __ _| |_ ___   ___ | |_ _ __  \n";
+   print "         |  < / _` | __/ _ \\ / _ \\| | | '_ \\ \n";
+   print "         | . \  (_| | || (_) | (_) | | | | | |\n";
+   print "         |_|\\_\\__,_|\\__\\___/ \\___/|_|_|_| |_|\n\n";
+}
+
+
 sub add_kali_repo {
    my $file = "/etc/apt/sources.list";
 
@@ -874,6 +884,7 @@ sub categories {
 
 sub main  {
    cls();
+   swag_logo_by_figlet();
    print "1) Add Kali repositories\n";
    print "2) View Categories\n";
    print "3) Install classicmenu indicator\n";
