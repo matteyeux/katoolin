@@ -111,8 +111,8 @@ sub categories {
    my $wat_kat = <>;
    chomp $wat_kat;
 
-   switch($wat_kat)
-   {
+   switch($wat_kat) {
+
       case 1 {
          print color("green"), "Information Gathering\n\n", color("reset");
          print " 1) acccheck                                    30) lbd\n";
@@ -145,6 +145,7 @@ sub categories {
          print "28) GoLismero                                   57) hping3\n\n";
          print "29) goofile\n\n";
          print "0) Install all Information Gathering tools\n\n";
+         print "Insert the number of the tool to install it\n";
          print color("red"), "\nkat > ", color("reset");
          my $var_info = <>;
          chomp $var_info;
@@ -208,9 +209,11 @@ sub categories {
             case 55 {system ("apt-get install -y ismtp")}
             case 56 {system ("apt-get install -y intrace")}
             case 57 {system ("apt-get install -y hping3")}
+            case 0 {system("apt-get install -y acccheck ace-voip amap automater braa casefile cdpsnarf cisco-torch cookie-cadger copy-router-config dmitry dnmap dnsenum dnsmap dnsrecon dnstracer dnswalk dotdotpwn enum4linux enumiax exploitdb fierce firewalk fragroute fragrouter ghost-phisher golismero goofile lbd maltego-teeth masscan metagoofil miranda nmap ntop p0f parsero recon-ng set smtp-user-enum snmpcheck sslcaudit sslsplit sslstrip sslyze thc-ipv6 theharvester tlssled twofi urlcrazy wireshark wol-e xplico ismtp intrace hping3 && wget http://www.morningstarsecurity.com/downloads/bing-ip2hosts-0.4.tar.gz && tar -xzvf bing-ip2hosts-0.4.tar.gz && cp bing-ip2hosts-0.4/bing-ip2hosts /usr/local/bin/")}
+            case "gohome" {main()}
+            case "back" {categories()}
          }
       }
-
       case 2 {
          print color("green"), "\t\tVulnerability Analysis\n", color("reset");
          print " 1) BBQSQL                                  18) ohrwurm\n";
@@ -232,6 +235,7 @@ sub categories {
          print "17) Nmap                                    34) Yersinia\n\n";
 
          print "0) Install all Vulnerability Analysis tools\n\n";
+         print "Insert the number of the tool to install it\n";
          print color("red"), "\nkat > ", color("reset");
          my $var_vuln = <>;
          chomp $var_vuln;
@@ -270,9 +274,11 @@ sub categories {
             case 32 {system("apt-get install -y tnscmd10g")}
             case 33 {system("apt-get install -y unix-privesc-check")}
             case 34 {system("apt-get install -y yersinia")}
+            case 0 {system("apt-get install -y bbqsql bed cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch copy-router-config doona dotdotpwn greenbone-security-assistant hexorbase inguma jsql lynis nmap ohrwurm openvas-cli openvas-manager openvas-scanner oscanner powerfuzzer sfuzz sidguesser siparmyknife sqlmap sqlninja sqlsus thc-ipv6 tnscmd10g unix-privesc-check yersinia")}
+            case "gohome" {main()}
+            case "back" {categories()}
          }                                                             
       }
-
       case 3 {
          print color("green"), "\t\tWireless Attacks\n", color("reset");
 
@@ -294,6 +300,8 @@ sub categories {
          print "16) kalibrate-rtl\n\n";
 
          print "0) Install all Wireless Attacks tools\n";
+         print "Insert the number of the tool to install it\n";
+         print "Insert the number of the tool to install it\n";
          
          print color("red"), "\nkat > ", color("reset");
          my $var_wireless = <>;
@@ -331,9 +339,11 @@ sub categories {
             case 29 {system("apt-get install -y wifi-honey")}
             case 30 {system("apt-get install -y wifitap")}
             case 31 {system("apt-get install -y wifite")}
+            case 0 {system("apt-get install -y aircrack-ng asleap bluelog blueranger bluesnarfer bully cowpatty crackle eapmd5pass fern-wifi-cracker ghost-phisher giskismet gqrx kalibrate-rtl killerbee kismet mdk3 mfcuk mfoc mfterm multimon-ng pixiewps reaver redfang spooftooph wifi-honey wifitap wifite")}
+            case "gohome" {main()}
+            case "back" {categories()}
          }           
       }
-
       case 4 {
          print color("green"), "\t\tWeb Applications\n", color("reset");
          print "1) apache-users                       21) plecost\n";
@@ -357,6 +367,7 @@ sub categories {
          print "19) Paros                             39) XSSer\n";
          print "20) Parsero                           40) zaproxy\n";
          print "0) Install all Web Applications tools\n";
+         print "Insert the number of the tool to install it\n";
 
          print color("red"), "\nkat > ", color("reset");
 
@@ -404,9 +415,11 @@ sub categories {
             case 38 {system("apt-get install -y wpscan")}
             case 39 {system("apt-get install -y xsser")}
             case 40 {system("apt-get install -y zaproxy")}
+            case 0 {system("apt-get install -y apache-users arachni bbqsql blindelephant burpsuite cutycapt davtest deblaze dirb dirbuster fimap funkload grabber jboss-autopwn joomscan jsql maltego-teeth padbuster paros parsero plecost powerfuzzer proxystrike recon-ng skipfish sqlmap sqlninja sqlsus ua-tester uniscan vega w3af webscarab webshag websploit wfuzz wpscan xsser zaproxy")}
+            case "gohome" {main()}
+            case "back" {categories()}
          }           
       }
-
       case 5 {
          print color("green"), "\t\tSniffing & Spoofing\n", color("reset");
          print " 1) Burp Suite                       17) rtpmixsound\n";
@@ -426,6 +439,7 @@ sub categories {
          print "15) rtpbreak                         31) Yersinia\n";
          print "16) rtpinsertsound                   32) zaproxy\n\n";
          print "0) Install all Sniffing & Spoofing tools\n";
+         print "Insert the number of the tool to install it\n";
          print color("red"), "\nkat > ", color("reset");
          my $var_sniff_spoof = <>;
          chomp $var_sniff_spoof;
@@ -464,9 +478,11 @@ sub categories {
             case 30 {system("apt-get install -y xspy")}
             case 31 {system("apt-get install -y yersinia")}
             case 32 {system("apt-get install -y zaproxy")}
+            case 0 {system("apt-get install -y burpsuite dnschef fiked hamster-sidejack hexinject iaxflood inviteflood ismtp mitmproxy ohrwurm protos-sip rebind responder rtpbreak rtpinsertsound rtpmixsound sctpscan siparmyknife sipp sipvicious sniffjoke sslsplit sslstrip thc-ipv6 voiphopper webscarab wifi-honey wireshark xspy yersinia zaproxy")}
+            case "gohome" {main()}
+            case "back" {categories()}
          }           
       }
-
       case 6 {
          print color("green"), "\t\tMaintaining Access\n", color("reset");
          print " 1) CryptCat\n";
@@ -487,6 +503,7 @@ sub categories {
          print "16) Weevely\n";
          print "17) Winexe\n\n";
          print "0) Install all Maintaining Access tools\n";
+         print "Insert the number of the tool to install it\n";
          print color("red"), "\nkat > ", color("reset");
          my $var_acces = <>;
          chomp $var_acces;
@@ -508,10 +525,12 @@ sub categories {
             case 14 {system("apt-get install -y u3-pwn")}
             case 15 {system("apt-get install -y webshells")}
             case 16 {system("apt-get install -y weevely")}
-            case 16 {system("apt-get install -y winexe")}
+            case 17 {system("apt-get install -y winexe")}
+            case 0 {system("apt-get install -y cryptcat cymothoa dbd dns2tcp http-tunnel httptunnel intersect nishang polenum powersploit pwnat ridenum sbd u3-pwn webshells weevely winexe")}
+            case "gohome" {main()}
+            case "back" {categories()}
          }
       }
-
       case 7 {
          print color("green"), "\t\tReporting Tools\n", color("reset");
          print "1) CaseFile\n";
@@ -525,6 +544,7 @@ sub categories {
          print "9) pipal\n";
          print "0) Install all Reporting Tools\n";
          print color("red"), "\nkat > ", color("reset");
+         print "Insert the number of the tool to install it\n";
          my $var_report = <>;
          chomp $var_report;
 
@@ -545,6 +565,9 @@ sub categories {
             case 14 {system("apt-get install -y sqlmap")}
             case 15 {system("apt-get install -y thc-ipv6")}
             case 16 {system("apt-get install -y yersinia")}
+            case 0 {system("apt-get install -y casefile cutycapt dos2unix dradis keepnote magictree metagoofil nipper-ng pipal")}
+            case "gohome" {main()}
+            case "back" {categories()}
          }
       }
 
@@ -568,6 +591,7 @@ sub categories {
          print "15) THC-IPV6\n";
          print "16) Yersinia\n\n";
          print "0) Install all Exploitation Tools\n";
+         print "Insert the number of the tool to install it\n";
          print color("red"), "\nkat > ", color("reset");
 
          my $exploit_tool = <>;
@@ -590,6 +614,9 @@ sub categories {
             case 14 {system("apt-get install -y sqlmap")}
             case 15 {system("apt-get install -y thc-ipv6")}
             case 16 {system("apt-get install -y yersinia")}
+            case 0 {system("apt-get install -y armitage backdoor-factory cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch crackle jboss-autopwn linux-exploit-suggester maltego-teeth set shellnoob sqlmap thc-ipv6 yersinia beef-xss")}
+            case "gohome" {main()}
+            case "back" {categories()}
          }
       }
       case 9 {
@@ -607,6 +634,7 @@ sub categories {
          print "11) extundelete                  23) Xplico\n";
          print "12) Foremost\n\n";                       
          print "0) Install all Forensics Tools\n";
+         print "Insert the number of the tool to install it\n";
          print color("red"), "\nkat > ", color("reset");
          my $var_foren = <>;
          chomp $var_foren;
@@ -634,7 +662,10 @@ sub categories {
             case 20 {system("apt-get install -y peepdf")}
             case 21 {system("apt-get install -y regripper")}
             case 22 {system("apt-get install -y volatility")}
-            case 23 {system("apt-get install -y xplico")}         
+            case 23 {system("apt-get install -y xplico")}
+            case 0 {system("apt-get install -y binwalk bulk-extractor chntpw cuckoo dc3dd ddrescue dff dumpzilla extundelete foremost galleta guymager iphone-backup-analyzer p0f pdf-parser pdfid pdgmail peepdf regripper volatility xplico")}
+            case "gohome" {main()}
+            case "back" {categories()}
          }
       }
       case 10 {
@@ -654,6 +685,7 @@ sub categories {
          print "13) THC-IPV6\n";
          print "14) THC-SSL-DOS\n\n";      
          print "0) Install all Stress Testing tools\n";
+         print "Insert the number of the tool to install it\n";
          
          print color("red"), "\nkat > ", color("reset");
          my $var_test = <>;
@@ -673,7 +705,10 @@ sub categories {
             case 11 {system("apt-get install -y t50")}
             case 12 {system("apt-get install -y termineter")}
             case 13 {system("apt-get install -y thc-ipv6")}
-            case 14 {system("apt-get install -y thc-ssl-dos")}                                                                                                                 
+            case 14 {system("apt-get install -y thc-ssl-dos")}
+            case 0 {system("apt-get install -y dhcpig funkload iaxflood inviteflood ipv6-toolkit mdk3 reaver rtpflood slowhttptest t50 termineter thc-ipv6 thc-ssl-dos")}
+            case "gohome" {main()}
+            case "back" {categories()}
          }
       }
       case 11 {
@@ -698,6 +733,7 @@ sub categories {
          print "17) keimpx                       35) wordlists\n";
          print "18) Maltego Teeth                36) zaproxy\n\n";
          print "0) Install all Password Attacks tools\n";
+         print "Insert the number of the tool to install it\n";
          
          print color("red"), "\nkat > ", color("reset");
          my $var_pass = <>;
@@ -740,9 +776,11 @@ sub categories {
             case 34 {system("apt-get install -y webscarab")}
             case 35 {system("apt-get install -y wordlists")}
             case 36 {system("apt-get install -y zaproxy")}
+            case 0 {system("apt-get install -y acccheck burpsuite cewl chntpw cisco-auditing-tool cmospwd creddump crunch findmyhash gpp-decrypt hash-identifier hexorbase john johnny keimpx maltego-teeth maskprocessor multiforcer ncrack oclgausscrack pack patator polenum rainbowcrack rcracki-mt rsmangler sqldict statsprocessor thc-pptp-bruter truecrack webscarab wordlists zaproxy")}
+            case "gohome" {main()}
+            case "back" {categories()}
          }
       }
-
       case 12 {
          print color("green"), "\t\tReverse Engineering\n", color("reset");
          print " 1) apktool\n";
@@ -757,6 +795,7 @@ sub categories {
          print "10) Valgrind\n";
          print "11) YARA\n\n";
          print "0) Install all Reverse Engineering tools\n";
+         print "Insert the number of the tool to install it\n";
          
          print color("red"), "\nkat > ", color("reset");
          my $var_reverse = <>;
@@ -773,9 +812,11 @@ sub categories {
             case 8 {system("apt-get install -y smali")}
             case 9 {system("apt-get install -y Valgrind")}
             case 10 {system("apt-get install -y YARA")}
+            case 0 {system("apt-get install -y apktool dex2jar python-diStorm3 edb-debugger jad javasnoop JD OllyDbg smali Valgrind YARA")}
+            case "gohome" {main()}
+            case "back" {categories()}
          }
       }
-
       case 13 {
          print color("green"), "\t\tHardware Hacking\n", color("reset");
          print "1) android-sdk\n";
@@ -785,6 +826,7 @@ sub categories {
          print "5) Sakis3G\n"; 
          print "6) smali\n\n";
          print "0) Install all Hardware Hacking tools\n";
+         print "Insert the number of the tool to install it\n";
                   
          print color("red"), "\nkat > ", color("reset");
          my $var_hard = <>;
@@ -797,6 +839,9 @@ sub categories {
             case 4 {system("apt-get install -y dex2jar")}
             case 5 {system("apt-get install -y sakis3g")}
             case 6 {system("apt-get install -y smali")}
+            case 0 {system("apt-get install -y android-sdk apktool arduino dex2jar sakis3g smali")}
+            case "gohome" {main()}
+            case "back" {categories()}
          }
       }
 
@@ -812,12 +857,16 @@ sub categories {
          switch ($var_extra) {
             case 1 {system("git clone https://github.com/LionSec/wifresti.git && cp wifresti/wifresti.py /usr/bin/wifresti && chmod +x /usr/bin/wifresti && wifresti")}
             case 2 {system("apt-get install -y squid3")}
+            case "gohome" {main()}
+            case "back" {categories()}
          }
       }
 
       case 0 {
          system("apt-get install -y acccheck ace-voip amap automater braa casefile cdpsnarf cisco-torch cookie-cadger copy-router-config dmitry dnmap dnsenum dnsmap dnsrecon dnstracer dnswalk dotdotpwn enum4linux enumiax exploitdb fierce firewalk fragroute fragrouter ghost-phisher golismero goofile lbd maltego-teeth masscan metagoofil miranda nmap ntop p0f parsero recon-ng set smtp-user-enum snmpcheck sslcaudit sslsplit sslstrip sslyze thc-ipv6 theharvester tlssled twofi urlcrazy wireshark wol-e xplico ismtp intrace hping3 bbqsql bed cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch copy-router-config doona dotdotpwn greenbone-security-assistant hexorbase inguma jsql lynis nmap ohrwurm openvas-cli openvas-manager openvas-scanner oscanner powerfuzzer sfuzz sidguesser siparmyknife sqlmap sqlninja sqlsus thc-ipv6 tnscmd10g unix-privesc-check yersinia aircrack-ng asleap bluelog blueranger bluesnarfer bully cowpatty crackle eapmd5pass fern-wifi-cracker ghost-phisher giskismet gqrx kalibrate-rtl killerbee kismet mdk3 mfcuk mfoc mfterm multimon-ng pixiewps reaver redfang spooftooph wifi-honey wifitap wifite apache-users arachni bbqsql blindelephant burpsuite cutycapt davtest deblaze dirb dirbuster fimap funkload grabber jboss-autopwn joomscan jsql maltego-teeth padbuster paros parsero plecost powerfuzzer proxystrike recon-ng skipfish sqlmap sqlninja sqlsus ua-tester uniscan vega w3af webscarab webshag websploit wfuzz wpscan xsser zaproxy burpsuite dnschef fiked hamster-sidejack hexinject iaxflood inviteflood ismtp mitmproxy ohrwurm protos-sip rebind responder rtpbreak rtpinsertsound rtpmixsound sctpscan siparmyknife sipp sipvicious sniffjoke sslsplit sslstrip thc-ipv6 voiphopper webscarab wifi-honey wireshark xspy yersinia zaproxy cryptcat cymothoa dbd dns2tcp http-tunnel httptunnel intersect nishang polenum powersploit pwnat ridenum sbd u3-pwn webshells weevely winexe casefile cutycapt dos2unix dradis keepnote magictree metagoofil nipper-ng pipal armitage backdoor-factory cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch crackle jboss-autopwn linux-exploit-suggester maltego-teeth set shellnoob sqlmap thc-ipv6 yersinia beef-xss binwalk bulk-extractor chntpw cuckoo dc3dd ddrescue dff dumpzilla extundelete foremost galleta guymager iphone-backup-analyzer p0f pdf-parser pdfid pdgmail peepdf regripper volatility xplico dhcpig funkload iaxflood inviteflood ipv6-toolkit mdk3 reaver rtpflood slowhttptest t50 termineter thc-ipv6 thc-ssl-dos acccheck burpsuite cewl chntpw cisco-auditing-tool cmospwd creddump crunch findmyhash gpp-decrypt hash-identifier hexorbase john johnny keimpx maltego-teeth maskprocessor multiforcer ncrack oclgausscrack pack patator polenum rainbowcrack rcracki-mt rsmangler sqldict statsprocessor thc-pptp-bruter truecrack webscarab wordlists zaproxy apktool dex2jar python-distorm3 edb-debugger jad javasnoop jd ollydbg smali valgrind yara android-sdk apktool arduino dex2jar sakis3g smali&& wget http://www.morningstarsecurity.com/downloads/bing-ip2hosts-0.4.tar.gz && tar -xzvf bing-ip2hosts-0.4.tar.gz && cp bing-ip2hosts-0.4/bing-ip2hosts /usr/local/bin/");
       }
+      case "gohome" {main()}
+      case "back" {main()}
    }
 }
 
