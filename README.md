@@ -15,7 +15,9 @@ Automatically install all Kali linux tools
 - sudo su
 - git clone https://github.com/LionSec/katoolin.git && cp katoolin/katoolin.py /usr/bin/katoolin
 - chmod +x /usr/bin/katoolin
-- sudo katoolin 
+- sudo katoolin
+
+For the Perl version you have to install Switch Term::ANSIScreen & Term::ANSIColor to run it properly
 
 #Video
 https://www.youtube.com/watch?v=8VxCWVoZEEE
