@@ -9,7 +9,7 @@
 #  Project......: katoolin.pl
 #  Type.........: script
 #  Creator......: Mathieu Hautebas
-#  Description..: Katoolin écrit en Perl
+#  Description..: Katoolin Perl version
 #
 ######################################################################
 # Language :
@@ -22,13 +22,15 @@
 #   ===============================================================
 #    Date     |       Who          |      What
 #   ---------------------------------------------------------------
-#    01/02/16 | Mathieu Hautebas   | Creation du script
+#    01/02/16 | Mathieu Hautebas   | Script creation
 #   ---------------------------------------------------------------
-#    03/02/16 | Mathieu Hautebas   | modifications du code 
+#    03/02/16 | Mathieu Hautebas   | code modif 
 #   ---------------------------------------------------------------
-# Petit défi à moi même : Réécrire Katoolin en Perl, en soit c'est pas compliqué à faire
-# Si j'ai le temps j'en ferais un post sur mon blog.
-# http://perldoc.perl.org/perlfaq8.html#How-do-I-clear-the-screen%3f
+#    04/02/16 | Mathieu Hautebas   | Few fixes 
+#   ---------------------------------------------------------------
+# Here is the Kattolin written in Perl. 
+# http://perldoc.perl.org/perlfaq8.html#How-do-I-clear-the-screen%3f just for reminder
+# Running this script as root is the best way ;)
 
 use strict;
 use warnings;
