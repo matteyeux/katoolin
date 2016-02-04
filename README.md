@@ -43,3 +43,9 @@ Please visit https://github.com/LionSec/wifresti/issues
 - Twitter: @LionSec1
 - Email : ledonman@gmail.com
 
+#Impouvments
+
+I wrote a perl version of Katoolin.
+Perl is a script programming langage too.
+It was a little challenge :)
+I'm going to continue working on to add features
