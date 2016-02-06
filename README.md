@@ -17,7 +17,9 @@ Automatically install all Kali linux tools
 - chmod +x /usr/bin/katoolin
 - sudo katoolin
 
-For the Perl version you have to install Switch Term::ANSIScreen & Term::ANSIColor to run it properly
+For the Perl version you have to install Switch Term::ANSIScreen & Term::ANSIColor to run it properly. 
+Make sure cpan is installed and configured 
+`cpan install Switch Term::ANSIScreen & Term::ANSIColor`
 
 #Video
 https://www.youtube.com/watch?v=8VxCWVoZEEE
