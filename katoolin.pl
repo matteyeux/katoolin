@@ -14,7 +14,7 @@
 ######################################################################
 # Language :
 #               Perl
-# Version : 0.2
+# Version : 0.3
 #
 #  Change Log
 #  ==========
@@ -28,16 +28,28 @@
 #   ---------------------------------------------------------------
 #    04/02/16 | Mathieu Hautebas   | Few fixes 
 #   ---------------------------------------------------------------
+#    30/04/16 | Mathieu Hautebas   | Added extras
+#   ---------------------------------------------------------------
 # Here is the Kattolin written in Perl. 
 # http://perldoc.perl.org/perlfaq8.html#How-do-I-clear-the-screen%3f just for reminder
 # Running this script as root is the best way ;)
 
 use strict;
 use warnings;
+use Cwd;
 use Term::ANSIScreen qw(cls);
 use Term::ANSIColor;
 use Switch;
 
+sub check_user {
+   my $username = $ENV{LOGNAME} || $ENV{USER} || getpwuid($<);
+   if ($username ne "root") {
+      print "Fail\n";
+   }
+   else {
+      print "It's ok\n";
+   }
+}
 sub swag_logo_by_figlet {
    print "          _  __     _              _ _       \n";
    print "         | |/ /    | |            | (_)      \n";
@@ -56,13 +68,13 @@ sub add_kali_repo {
    {
       print "Existing file\n";
       open(my $header, '>>', $file) or die "Can't open file, make sur you're root";
-      print $header "# Kali linux repositories | Added by Katoolin Perl version\ndeb http://http.kali.org/kali sana main non-free contrib\ndeb http://security.kali.org/kali-security sana/updates main contrib non-free\ndeb http://repo.kali.org/kali kali-bleeding-edge main";
+      print $header "# Kali linux repositories | Added by Katoolin Perl version\ndeb http://http.kali.org/kali kali-rolling main non-free contrib\ndeb http://security.kali.org/kali-security sana/updates main contrib non-free\ndeb http://repo.kali.org/kali kali-bleeding-edge main";
       close $header;
       print "Successfully added Kali Linux repositories !\n";
    }
    else
    {
-      open (my $header, '>', $file) or die "Can't open file, make sur you're root";
+      open (my $header, '>', $file) or die "Can't open file, make sure you're root";
       print $header "# Kali linux repositories | Added by Katoolin\ndeb http://http.kali.org/kali sana main non-free contrib\ndeb http://security.kali.org/kali-security sana/updates main contrib non-free\ndeb http://repo.kali.org/kali kali-bleeding-edge main";
       close $header;
    }
@@ -513,7 +525,6 @@ sub categories {
          print "14) U3-Pwn\n";
          print "15) Webshells\n";
          print "16) Weevely\n";
-         print "17) Winexe\n\n";
          print "0) Install all Maintaining Access tools\n";
          print "Insert the number of the tool to install it\n";
          print color("red"), "\nkat > ", color("reset");
@@ -537,7 +548,6 @@ sub categories {
             case 14 {system("apt-get install -y u3-pwn")}
             case 15 {system("apt-get install -y webshells")}
             case 16 {system("apt-get install -y weevely")}
-            case 17 {system("apt-get install -y winexe")}
             case 0 {system("apt-get install -y cryptcat cymothoa dbd dns2tcp http-tunnel httptunnel intersect nishang polenum powersploit pwnat ridenum sbd u3-pwn webshells weevely winexe")}
             case "gohome" {main()}
             case "back" {categories()}
@@ -861,6 +871,7 @@ sub categories {
          print color("green"), "\t\tExtra\n", color("reset");
          print "1) Wifresti\n";
          print "2) Squid3\n";
+         print "3) Routersploit\n";
          
          print color("red"), "\nkat > ", color("reset");
          my $var_extra = <>;
@@ -869,6 +880,20 @@ sub categories {
          switch ($var_extra) {
             case 1 {system("git clone https://github.com/LionSec/wifresti.git && cp wifresti/wifresti.py /usr/bin/wifresti && chmod +x /usr/bin/wifresti && wifresti")}
             case 2 {system("apt-get install -y squid3")}
+            case 3 {
+               if (! -e "/usr/bin/git")
+               {
+                  system("apt-get install git");
+               }
+               if (! -e "/usr/bin/pip")
+               {
+                  system("apt-get install python-pip");
+               }
+               system("git clone https://github.com/reverse-shell/routersploit"); 
+               chdir("routersploit") or die "Unable to access to routersploit\n";
+               system("pip install -r requirements.txt");
+               print "Installation is done, you can now use routersploit by running rsf.py\n";
+            }
             case "gohome" {main()}
             case "back" {categories()}
          }
@@ -883,7 +908,11 @@ sub categories {
 }
 
 sub main  {
-   cls();
+   system("clear");
+   check_user();
+   #cls();
+   # my $RepCourant = cwd();
+   # print $RepCourant;
    swag_logo_by_figlet();
    print "1) Add Kali repositories\n";
    print "2) View Categories\n";
@@ -896,7 +925,7 @@ sub main  {
    switch ($option)
    {
       case 1 {add_kali_repo()}
-      case 2 {categories()} #I'll continue to work on tomorrow
+      case 2 {categories()}
       case 3 {install_classic_menu()}
       case 4 {install_kali_menu()}
    }
